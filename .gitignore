@@ -43,6 +43,7 @@ output/
 *.txt
 !requirements.txt
 !README.txt
+!README.md
 
 # Android-specific
 *.apk
@@ -113,6 +114,7 @@ temp/
 *.docx
 *.ppt
 *.pptx
+*.png
 
 # Documentation build files
 docs/_build/
@@ -129,6 +131,7 @@ site/
 power_analyzer.py
 scratch.py
 cpu_rail_map.py
+main_pipeline.py
 
 # Unused/Old Scripts
 workstation scripts/ceff_script.sh
