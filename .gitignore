@@ -135,14 +135,14 @@ main_pipeline.py
 power_model_error_comparison.png
 
 # Unused/Old Scripts
-workstation scripts/ceff_script.sh
-workstation scripts/ceff_script_2.sh
-workstation scripts/cpu_3.sh
+workstation_scripts/ceff_script.sh
+workstation_scripts/ceff_script_2.sh
+workstation_scripts/cpu_3.sh
 
 # Incremental and Initial Folders
-mobile phone scripts/Google Pixel/Incremental/
-initial scripts/
-mobile phone scripts/Samsung A16/Incremental/
-mobile phone scripts/Samsung A16/Incremental_new_baseline/
+mobile_scripts/Google_Pixel/Incremental/
+initial_scripts/
+mobile_scripts/Samsung_A16/Incremental/
+mobile_scripts/Samsung_A16/Incremental_new_baseline/
 
-mobile phone scripts/helpers/
+mobile_scripts/helpers/

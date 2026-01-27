@@ -45,10 +45,10 @@ This repository contains automated measurement scripts for characterizing CPU po
 
 ```bash
 # For Google Pixel LITTLE cluster
-adb push "mobile phone scripts/Google Pixel/Per cluster/g_little.sh" /data/local/tmp/
+adb push "mobile_scripts/Google_Pixel/Per_cluster/g_little.sh" /data/local/tmp/
 
 # For Samsung A16 BIG cluster
-adb push "mobile phone scripts/Samsung A16/Per cluster/s_big.sh" /data/local/tmp/
+adb push "mobile_scripts/Samsung_A16/Per_cluster/s_big.sh" /data/local/tmp/
 ```
 
 ### 2. Run Measurement
@@ -75,7 +75,7 @@ sh /data/local/tmp/g_little.sh 600 0.5 300
 
 ```bash
 # Pull CSV results from device
-adb pull /data/local/tmp/little_core_power.csv ./csv_files/mobile_phone/Google\ Pixel/
+adb pull /data/local/tmp/little_core_power.csv ./csv_files/mobile_phone/Google_Pixel/
 ```
 
 ## Key Measurement Considerations
