@@ -132,6 +132,7 @@ power_analyzer.py
 scratch.py
 cpu_rail_map.py
 main_pipeline.py
+power_model_error_comparison.png
 
 # Unused/Old Scripts
 workstation scripts/ceff_script.sh
