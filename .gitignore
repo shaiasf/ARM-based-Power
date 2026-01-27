@@ -1,0 +1,142 @@
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*~
+
+# Editor and IDE Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# Python (if you have any Python scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv
+
+# Log Files and Data
+*.log
+*.csv
+*.dat
+*.out
+logs/
+data/
+results/
+measurements/
+output/
+*.txt
+!requirements.txt
+!README.txt
+
+# Android-specific
+*.apk
+*.ap_
+*.dex
+*.class
+local.properties
+.gradle/
+build/
+captures/
+.externalNativeBuild
+.cxx
+
+# Mobile Device Data
+*.db
+*.sqlite
+*.sqlite3
+device_info/
+temp_data/
+raw_data/
+
+# Credentials and Secrets
+*.key
+*.pem
+*.p12
+*.keystore
+secrets/
+credentials/
+config.local.sh
+.env
+.env.local
+api_keys.txt
+tokens.txt
+
+# Backup Files
+*.bak
+*.backup
+*.old
+*_backup
+*_old
+
+# Compiled/Binary Files
+*.o
+*.a
+*.so
+*.exe
+*.dll
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# Temporary Files
+tmp/
+temp/
+*.tmp
+.cache/
+
+# Large Data Files
+*.mp4
+*.avi
+*.mov
+*.pdf
+*.doc
+*.docx
+*.ppt
+*.pptx
+
+# Documentation build files
+docs/_build/
+site/
+
+# OS-generated files
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# Project-Specific Files
+# Specific Python scripts
+power_analyzer.py
+scratch.py
+cpu_rail_map.py
+
+# Unused/Old Scripts
+workstation scripts/ceff_script.sh
+workstation scripts/ceff_script_2.sh
+workstation scripts/cpu_3.sh
+
+# Incremental and Initial Folders
+mobile phone scripts/Google Pixel/Incremental/
+initial scripts/
+mobile phone scripts/Samsung A16/Incremental/
+mobile phone scripts/Samsung A16/Incremental_new_baseline/
