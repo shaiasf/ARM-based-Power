@@ -44,6 +44,7 @@ output/
 !requirements.txt
 !README.txt
 !README.md
+Scripts_guide.txt
 
 # Android-specific
 *.apk
@@ -114,7 +115,10 @@ temp/
 *.docx
 *.ppt
 *.pptx
-*.png
+
+# PNG files in output directories (keep source images if needed)
+results/*.png
+error_analysis/plots/*.png
 
 # Documentation build files
 docs/_build/
@@ -127,17 +131,22 @@ site/
 .nfs*
 
 # Project-Specific Files
-# Specific Python scripts
-power_analyzer.py
+# Specific Python scripts to exclude
 scratch.py
-cpu_rail_map.py
-main_pipeline.py
-power_model_error_comparison.png
+generate_noisy_clusters.py
+plot_power_model_errors.py
+cpu_rail_mapper_*.sh
 
-# Unused/Old Scripts
-workstation_scripts/ceff_script.sh
-workstation_scripts/ceff_script_2.sh
-workstation_scripts/cpu_3.sh
+# Project folders with data/results
+csv_files/
+error_analysis/
+workstation_scripts/
+
+# Generated result files (keep the generation scripts, exclude outputs)
+results/*.png
+results/*.pdf
+!results/README.md
+
 
 # Incremental and Initial Folders
 mobile_scripts/Google_Pixel/Incremental/
@@ -146,3 +155,4 @@ mobile_scripts/Samsung_A16/Incremental/
 mobile_scripts/Samsung_A16/Incremental_new_baseline/
 
 mobile_scripts/helpers/
+
