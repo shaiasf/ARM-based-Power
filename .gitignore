@@ -136,6 +136,7 @@ scratch.py
 generate_noisy_clusters.py
 plot_power_model_errors.py
 cpu_rail_mapper_*.sh
+cpu_rail_map.py
 
 # Project folders with data/results
 csv_files/
