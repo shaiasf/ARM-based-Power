@@ -10,7 +10,7 @@ This repository contains automated measurement scripts for characterizing CPU po
 - Device-specific scripts (Google Pixel, Samsung A16) pre-configured for each cluster
 - Dynamic scripts with configurable arguments that work on any device/cluster
 
-## Supported Devices
+## Tested Devices
 
 - **Google Pixel 8 Pro** (9 cores: LITTLE 0-3, BIG 4-7, PRIME 8)
 - **Samsung Galaxy A16** (8 cores: LITTLE 0-5, BIG 6-7)

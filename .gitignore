@@ -142,18 +142,10 @@ cpu_rail_map.py
 csv_files/
 error_analysis/
 workstation_scripts/
+mobile_scripts/
 
 # Generated result files (keep the generation scripts, exclude outputs)
 results/*.png
 results/*.pdf
 !results/README.md
-
-
-# Incremental and Initial Folders
-mobile_scripts/Google_Pixel/Incremental/
-initial_scripts/
-mobile_scripts/Samsung_A16/Incremental/
-mobile_scripts/Samsung_A16/Incremental_new_baseline/
-
-mobile_scripts/helpers/
 
