@@ -6,6 +6,10 @@ A collection of shell scripts and Python tools for measuring and analyzing per-c
 
 This repository contains automated measurement scripts for characterizing CPU power consumption across different core clusters (LITTLE, BIG, and PRIME) on mobile devices. The scripts implement CPU isolation techniques using cgroup cpusets to ensure accurate power measurements by shielding cores from system task interference.
 
+**Script Types:**
+- Device-specific scripts (Google Pixel, Samsung A16) pre-configured for each cluster
+- Dynamic scripts with configurable arguments that work on any device/cluster
+
 ## Supported Devices
 
 - **Google Pixel 8 Pro** (9 cores: LITTLE 0-3, BIG 4-7, PRIME 8)
