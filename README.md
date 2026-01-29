@@ -1,5 +1,7 @@
 # Mobile CPU Power Measurement Scripts
 
+This repository contains the code to run simulations for the paper "A Methodology to Assess Power Modeling in Energy-Aware Federated Learning on Heterogeneous Mobile Devices", submitted to ACM e-Energy conference.
+
 A collection of shell scripts and Python tools for measuring and analyzing per-core and per-cluster power consumption on ARM-based mobile devices and x86 workstations.
 
 ## Overview
@@ -150,7 +152,4 @@ adb pull /data/local/tmp/little_core_power_cluster.csv ./csv_files/mobile_phone/
 ## License
 
 This repository is for research and educational purposes.
-
-**Related Publication:**  
-*A Methodology to Assess Power Modeling in Energy-Aware Federated Learning on Heterogeneous Mobile Devices*
 
