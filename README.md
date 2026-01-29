@@ -18,18 +18,6 @@ This repository provides **interactive measurement scripts** that work on any de
 - **Samsung Galaxy A16** (8 cores: LITTLE 0-5, BIG 6-7)
 - **x86 Intel Xeon W-2123 workstation**
 
-## Features
-
-- **Per-Cluster Measurement**: Isolated testing of CPU core clusters (LITTLE, BIG, PRIME)
-- **Single Per-Core Testing**: Test individual cores one at a time with baseline comparison
-- **CPU Shielding**: Uses cgroup cpusets to isolate cores from system tasks
-- **Voltage Rail Logging**: Map voltage regulators to CPU clusters
-- **Multi-Phase Testing**: 
-  - Baseline phases (housekeeping core idle)
-  - Idle phases (cluster cores online but idle)
-  - Stress phases (cluster cores under load using stress-ng)
-- **Comprehensive Logging**: CSV output with timestamps, power, voltage, current, temperature, frequency, and CPU usage
-
 ## Prerequisites
 
 ### On Android Devices
@@ -158,30 +146,6 @@ adb pull /data/local/tmp/*.csv ./csv_files/
 adb pull /data/local/tmp/little_core_power_cluster.csv ./csv_files/mobile_phone/
 ```
 
-## Analysis Tools
-
-### Error Analysis
-
-Compute error statistics and generate box plots:
-
-```bash
-cd error_analysis
-python3 run_analysis.py
-```
-
-**Output:**
-- `error_statistics.csv` - Mean, std, median across runs
-- `boxplot_data.csv` - Data formatted for plotting
-- `plots/*.png` - Various box plot visualizations
-
-## Key Measurement Considerations
-
-1. **Thermal Stabilization**: Allow device to cool between measurements to avoid thermal throttling
-2. **Background Apps**: Close all apps and disable unnecessary services before testing
-3. **Screen State**: Scripts acquire wakelock to maintain consistent state during measurement
-4. **CPU Governor**: Consider fixing CPU frequency governor to `performance` or `userspace` for consistent frequency
-5. **Battery Level**: Maintain consistent battery level across tests (e.g., 50-80%)
-6. **Airplane Mode**: Enable airplane mode to reduce background network activity
 
 ## License
 
