@@ -36,7 +36,7 @@ CGROUP_SYSTEM="$CGROUP_ROOT/system"
 CGROUP_SHIELD="$CGROUP_ROOT/shield"
 
 # ---- Sanity checks ---------------------------------------------------------
-command -v yes >/dev/null 2>&1 || { echo "[!] 'yes' not found"; exit 1; }
+command -v stress-ng >/dev/null 2>&1 || { echo "[!] 'stress-ng' not found"; exit 1; }
 command -v taskset >/dev/null 2>&1 || { echo "[!] 'taskset' not found"; exit 1; }
 id | grep -q "uid=0" || { echo "[!] Run as root (su)"; exit 1; }
 
@@ -249,18 +249,18 @@ read_cpu_usage() {
 
 start_yes_mask() {
   local mask="$1"
-  taskset "$mask" yes >/dev/null 2>&1 &
+  taskset "$mask" stress-ng --cpu 1 --cpu-method all --timeout 0 >/dev/null 2>&1 &
   echo $!
 }
 
 stop_yes() {
-  killall yes 2>/dev/null || true
+  killall stress-ng 2>/dev/null || true
   sleep 0.5
 }
 
 cleanup() {
   echo ""
-  echo "[*] Cleaning up: killing yes, restoring all cores online"
+  echo "[*] Cleaning up: killing stress-ng, restoring all cores online"
   stop_yes
   cleanup_cpusets
   release_screen_lock
@@ -437,7 +437,7 @@ run_stress_phase() {
     PID="$(start_yes_mask "$mask")"
     move_pid_to_shield "$PID"
     PIDS="$PIDS $PID"
-    echo "[+] Started yes stress: PID=$PID on CPU$c (mask=$mask), moved to shield"
+    echo "[+] Started stress-ng: PID=$PID on CPU$c (mask=$mask), moved to shield"
   done
 
   LOG="${LOG_PREFIX}.csv"

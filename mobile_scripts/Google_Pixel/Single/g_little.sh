@@ -548,7 +548,7 @@ run_stress_phase() {
     mask=$((1 << c))
     PID="$(start_yes_mask "$mask")"
     PIDS="$PIDS $PID"
-    echo "[+] Started yes stress: PID=$PID on CPU$c (mask=$mask)"
+    echo "[+] Started stress-ng: PID=$PID on CPU$c (mask=$mask)"
   done
 
   

@@ -31,7 +31,7 @@ BIG_CORES="4 5 6 7"             # Define BIG cluster cores (to be tested)
 HOUSEKEEPING_CORES="0"          # Housekeeping core (stays online but idle)
 
 # ---- Sanity checks ---------------------------------------------------------
-command -v yes >/dev/null 2>&1 || { echo "[!] 'yes' not found"; exit 1; }
+command -v stress-ng >/dev/null 2>&1 || { echo "[!] 'stress-ng' not found"; exit 1; }
 command -v taskset >/dev/null 2>&1 || { echo "[!] 'taskset' not found"; exit 1; }
 id | grep -q "uid=0" || { echo "[!] Run as root (su)"; exit 1; }
 
@@ -198,15 +198,15 @@ calc_cpu_usage_pct() {
 # Start yes pinned to mask in THIS shell; return PID
 start_yes_mask() {
   mask="$1"
-  taskset "$mask" yes >/dev/null &
+  taskset "$mask" stress-ng --cpu 1 --cpu-method all --timeout 0 >/dev/null 2>&1 &
   echo $!
 }
 
-stop_yes() { pkill yes >/dev/null 2>&1 || true; }
+stop_yes() { pkill stress-ng >/dev/null 2>&1 || true; }
 
 cleanup() {
   echo ""
-  echo "[*] Cleaning up: killing yes, restoring all cores online"
+  echo "[*] Cleaning up: killing stress-ng, restoring all cores online"
   stop_yes
   release_screen_lock
   for c in $ALL_CORES; do set_cpu_online "$c" 1; done
@@ -428,7 +428,7 @@ run_stress_phase() {
     esac
     PID="$(start_yes_mask "$mask")"
     PIDS="$PIDS $PID"
-    echo "[+] Started yes stress: PID=$PID on CPU$c (mask=$mask)"
+    echo "[+] Started stress-ng: PID=$PID on CPU$c (mask=$mask)"
   done
   
   LOG="${LOG_PREFIX}.csv"

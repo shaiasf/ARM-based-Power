@@ -28,8 +28,8 @@ CGROUP_ROOT="/dev/cpuset"
 CGROUP_SYSTEM="$CGROUP_ROOT/system"
 CGROUP_SHIELD="$CGROUP_ROOT/shield"
 
-# ---- Sanity checks ----
-command -v yes >/dev/null 2>&1 || { echo "[!] 'yes' not found"; exit 1; }
+# ---- Sanity checks ---------------------------------------------------------
+command -v stress-ng >/dev/null 2>&1 || { echo "[!] 'stress-ng' not found"; exit 1; }
 command -v taskset >/dev/null 2>&1 || { echo "[!] 'taskset' not found"; exit 1; }
 id | grep -q "uid=0" || { echo "[!] Run as root (su)"; exit 1; }
 
@@ -277,22 +277,22 @@ calc_cpu_usage_pct() {
   fi
 }
 
-# Start yes pinned to mask in THIS shell; return PID
+# Start stress-ng pinned to mask in THIS shell; return PID
 # Also move the process to shield cgroup
 start_yes_mask() {
   mask="$1"
-  taskset "$mask" yes >/dev/null &
+  taskset "$mask" stress-ng --cpu 1 --cpu-method all --timeout 0 >/dev/null 2>&1 &
   PID=$!
   # Move to shield cgroup to allow it on isolated cores
   echo "$PID" > "$CGROUP_SHIELD/tasks" 2>/dev/null || true
   echo $PID
 }
 
-stop_yes() { pkill yes >/dev/null 2>&1 || true; }
+stop_yes() { pkill stress-ng >/dev/null 2>&1 || true; }
 
 cleanup() {
   echo ""
-  echo "[*] Cleaning up: killing yes, restoring all cores online"
+  echo "[*] Cleaning up: killing stress-ng, restoring all cores online"
   stop_yes
   release_screen_lock
   cleanup_cgroups
